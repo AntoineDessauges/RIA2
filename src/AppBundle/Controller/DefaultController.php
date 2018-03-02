@@ -15,12 +15,16 @@ class DefaultController extends Controller
     public function indexAction(){
 
        
-        $like_count = $this->get_fb_likes();
-        $follow_count = $this->get_twitter_follows();
+        $fb_like_count = $this->get_fb_likes();
+        $twitter_follow_count = $this->get_twitter_follows();
+        $instagram_follow_count = 53;
+        $total_count = $twitter_follow_count + $fb_like_count + $instagram_follow_count;
 
         return $this->render('default/index.html.twig', [
-            'like_count' => $like_count,
-            'follow_count' => $follow_count
+            'fb_like_count' => $fb_like_count,
+            'twitter_follow_count' => $twitter_follow_count,
+            'instagram_follow_count' => $instagram_follow_count,
+            'total_count' => $total_count
         ]);
 
     }

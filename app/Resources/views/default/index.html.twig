@@ -3,12 +3,34 @@
 {% block title %}RIA2 - Dessauges Antoine{% endblock %}
 
 {% block body %}
-    <div id="wrapper">
-        <div id="container">
-           <h1>CPNV Social Dashboard</h1>
-            {{ like_count }} likes on facebook
-            {{ follow_count }} follow on twitter
+    <h1>CPNV Social Dashboard</h1>
+    <div class="container center">
+        <div class="row">
+            <div class="col-md-9 total-area">
+                <div class="center">
+                    <span class="count" data-number="{{ total_count }}">{{ total_count }}</span> interactions social
+                </div>
+            </div>
+            <div class="col-md-3 social-area">
+                <div class="facebook one-social">
+                    <div class="center">
+                        <span class="count" data-number="{{ fb_like_count }}">{{ fb_like_count }}</span> likes
+                    </div>
+                </div>
+                <div class="one-social twitter">
+                    <div class="center">
+                        <span class="count" data-number="{{ twitter_follow_count }}">{{ twitter_follow_count }}</span> follows
+                    </div>
+                </div>
+                <div class="one-social instagram">
+                    <div class="img"></div>
+                    <div class="center">
+                        <span class="count" data-number="{{ instagram_follow_count }}">{{ instagram_follow_count }}</span> follows
+                    </div>
+                </div>
+            </div>
         </div>
+
     </div>
 {% endblock %}
 
