@@ -17,7 +17,7 @@ class DefaultController extends Controller
        
         $fb_like_count = $this->get_fb_likes();
         $twitter_follow_count = $this->get_twitter_follows();
-        $instagram_follow_count = 53;
+        $instagram_follow_count = $this->get_instagram_subscribers();
         $total_count = $twitter_follow_count + $fb_like_count + $instagram_follow_count;
 
         return $this->render('default/index.html.twig', [
@@ -27,6 +27,13 @@ class DefaultController extends Controller
             'total_count' => $total_count
         ]);
 
+    }
+
+    function get_instagram_subscribers(){
+        $url = "https://www.instagram.com/cpnv.ch/?__a=1";
+        $json = file_get_contents($url);
+        $jsonObj = json_decode($json);
+        return $jsonObj->user->followed_by->count;
     }
 
     function get_twitter_follows(){
