@@ -4,8 +4,10 @@
 
 {% block body %}
     <h1>CPNV Social Dashboard</h1>
+
     <div class="container center">
-        <div class="row">
+
+        <div class="row boxed">
             <div class="col-md-9 total-area">
                 <div class="center">
                     <span class="count" data-number="{{ total_count }}">{{ total_count }}</span> interactions social
@@ -19,16 +21,32 @@
                 </div>
                 <div class="one-social twitter">
                     <div class="center">
-                        <span class="count" data-number="{{ twitter_follow_count }}">{{ twitter_follow_count }}</span> follows
+                        <span class="count" data-number="{{ twitter_followers_count }}">{{ twitter_followers_count }}</span> followers
+                    </div>
+                </div>
+              <div class="one-social linkedin">
+                    <div class="center">
+                        <span class="count" data-number="{{ linkedin_followers_count }}">{{ instagram_followers_count }}</span> abonnées
                     </div>
                 </div>
                 <div class="one-social instagram">
                     <div class="img"></div>
                     <div class="center">
-                        <span class="count" data-number="{{ instagram_follow_count }}">{{ instagram_follow_count }}</span> abonnées
+                        <span class="count" data-number="{{ instagram_followers_count }}">{{ instagram_followers_count }}</span> abonnées
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="row social_add">
+            <div class="col-md-3">
+                <div class="fb-like" data-href="https://www.facebook.com/cpnv.ch/" data-layout="button" data-action="like" data-size="small" data-show-faces="false" data-share="false"></div>
+            </div>
+            <div class="col-md-3"></div>
+            <div class="col-md-3">
+                <script src="https://platform.linkedin.com/in.js" type="text/javascript">  lang: fr_FR</script>
+                <script type="IN/FollowCompany" data-id="15143046"></script>
+            </div>
+            <div class="col-md-3"></div>
         </div>
 
     </div>
