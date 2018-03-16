@@ -49,7 +49,7 @@ class DefaultController extends Controller
         $json = file_get_contents($url);
         $jsonObj = json_decode($json);
 
-        return $jsonObj->user->followed_by->count;
+        return $jsonObj->graphql->user->edge_followed_by->count;
 
     }
 
