@@ -1,77 +1,72 @@
-Symfony Standard Edition
-========================
+# Projet
 
-**WARNING**: This distribution does not support Symfony 4. See the
-[Installing & Setting up the Symfony Framework][15] page to find a replacement
-that fits you best.
+Ce projet affiche un dashboard des réseaux sociaux du CPNV. 
 
-Welcome to the Symfony Standard Edition - a fully-functional Symfony
-application that you can use as the skeleton for your new applications.
+Il affiche un compteur des likes/followers pour :
+- Facebook
+- Twitter
+- Linkedin
+- Instagram
 
-For details on how to download and get started with Symfony, see the
-[Installation][1] chapter of the Symfony Documentation.
+Ainsi qu'un conteur total d'interactions sociales. Il affiche en plus un bouton permettant de s'abonner aux différents réseaux sociaux.
 
-What's inside?
---------------
+# Installation
 
-The Symfony Standard Edition is configured with the following defaults:
+Pour installer le projet sur votre machine, clonez le repository avec la commande suivante:
+> git clone https://github.com/AntoineDessauges/RIA2.git
 
-  * An AppBundle you can use to start coding;
+Installez les dépendances nécessaires avec:
+> composer install
 
-  * Twig as the only configured template engine;
+Et lancez le serveur avec:
+> php bin/console server:run
 
-  * Doctrine ORM/DBAL;
+Votre projet est accesible à l'adresse afficher dans votre invite de commande (normalement [http://127.0.0.1:8000/](http://127.0.0.1:8000/)).
 
-  * Swiftmailer;
+# Documentation technique
 
-  * Annotations enabled for everything.
+Ce projet a été réalisé en Symfony 3.4 est utilise différentes API ou hack pour accéder aux valeurs des réseaux sociaux.
 
-It comes pre-configured with the following bundles:
+## Clés et tokens
 
-  * **FrameworkBundle** - The core Symfony framework bundle
+Toutes les clés et tokens pour accéder aux API sont stockés dans le fichier `app/config/parameters.yml` et dans sa copie `app/config/parameters.yml.dist`. La copie etant obligatoire sinon le fichier `app/config/parameters.yml` sera éventuellement, supprimée lors d'installations d'autres gems.
 
-  * [**SensioFrameworkExtraBundle**][6] - Adds several enhancements, including
-    template and routing annotation capability
+## Facebook
 
-  * [**DoctrineBundle**][7] - Adds support for the Doctrine ORM
+Pour récupérer les informations Facebook, j'utilise le [SDK Facebook](https://developers.facebook.com/docs/php/Facebook/5.0.0) qui me retourne un json avec les valeurs de la page Facebook.
 
-  * [**TwigBundle**][8] - Adds support for the Twig templating engine
+Pour le bouton Like, j'utilise leur [générateur de bouton](https://developers.facebook.com/docs/plugins/like-button).
 
-  * [**SecurityBundle**][9] - Adds security by integrating Symfony's security
-    component
+## Twitter
 
-  * [**SwiftmailerBundle**][10] - Adds support for Swiftmailer, a library for
-    sending emails
+Pour récupérer les informations Twitter, j'utilise la librairie twitteroauth](https://github.com/abraham/twitteroauth) qui me retourne un json avec les valeurs de la page Twitter.
 
-  * [**MonologBundle**][11] - Adds support for Monolog, a logging library
+Pour le bouton Follow, j'utilise leur [générateur de bouton](https://dev.twitter.com/web/follow-button).
 
-  * **WebProfilerBundle** (in dev/test env) - Adds profiling functionality and
-    the web debug toolbar
+## Linkedin
 
-  * **SensioDistributionBundle** (in dev/test env) - Adds functionality for
-    configuring and working with Symfony distributions
+Ne possédant pas les accès de la page Linkedin du CPNV, mon application ne possédait pas les droits pour récupérer les informations nécessaires.
+Un hack a été utilisé en effectuant une requête  sur l'url `https://api.criexe.com/social/pageStats?linkedin=15143046` qui me retourne les informations désirées  sous forme de json.
 
-  * [**SensioGeneratorBundle**][13] (in dev env) - Adds code generation
-    capabilities
+Pour le bouton Suivre, j'utilise leur [générateur de bouton](https://developer.linkedin.com/plugins/follow-company).
 
-  * [**WebServerBundle**][14] (in dev env) - Adds commands for running applications
-    using the PHP built-in web server
+## Instagram
 
-  * **DebugBundle** (in dev/test env) - Adds Debug and VarDumper component
-    integration
+Ne possédant pas les accès de la page Instagram du CPNV, mon application ne possédait pas les droits pour récupérer les informations nécessaires.
+Un hack a été utilisé en effectuant une requête  sur l'url `https://www.instagram.com/cpnv.ch/?__a=1` qui me retourne les informations désirées  sous forme de json.
 
-All libraries and bundles included in the Symfony Standard Edition are
-released under the MIT or BSD license.
+Instagram ne possédant pas de générateur de bouton ou d'option pour suivre la page de cette façon, j'ai simplement mis un lien vers la page.
 
-Enjoy!
+# Plan RIA2
 
-[1]:  https://symfony.com/doc/3.4/setup.html
-[6]:  https://symfony.com/doc/current/bundles/SensioFrameworkExtraBundle/index.html
-[7]:  https://symfony.com/doc/3.4/doctrine.html
-[8]:  https://symfony.com/doc/3.4/templating.html
-[9]:  https://symfony.com/doc/3.4/security.html
-[10]: https://symfony.com/doc/3.4/email.html
-[11]: https://symfony.com/doc/3.4/logging.html
-[13]: https://symfony.com/doc/current/bundles/SensioGeneratorBundle/index.html
-[14]: https://symfony.com/doc/current/setup/built_in_web_server.html
-[15]: https://symfony.com/doc/current/setup.html
+| Semaine  |  Travail à réaliser |
+|---|---|
+|  1 |  Choisir le projet et les technologies, réaliser les planifications |
+|  2 |  Installer le framework, comprendre les bases |
+|  3 |  Comprendre les bases du framework |
+|  4 |  API réseaux sociaux |
+|  5 |  API réseaux sociaux |
+|  6 |  API réseaux sociaux, faire la présentation |
+|  7 |  Présentation sur Symfony, API réseaux sociaux |
+|  8 |  Faire la documentation du projet |
+|  9 |  Finaliser le projet |
