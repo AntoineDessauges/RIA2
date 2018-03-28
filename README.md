@@ -8,12 +8,15 @@ Il affiche un compteur des likes/followers pour :
 - Linkedin
 - Instagram
 
-Ainsi qu'un conteur total d'interactions sociales. Il affiche en plus un bouton permettant de s'abonner aux différents réseaux sociaux.
+Ainsi qu'un compteur total d'interactions sociales. Il affiche en plus un bouton permettant de s'abonner aux différents réseaux sociaux.
 
 # Installation
 
 Pour installer le projet sur votre machine, clonez le repository avec la commande suivante:
 > git clone https://github.com/AntoineDessauges/RIA2.git
+
+Déplacez-vous dans le dossier du projet:
+> cd <nom_dossier>
 
 Installez les dépendances nécessaires avec:
 > composer install
@@ -25,7 +28,7 @@ Votre projet est accesible à l'adresse afficher dans votre invite de commande (
 
 # Documentation technique
 
-Ce projet a été réalisé en Symfony 3.4 est utilise différentes API ou hack pour accéder aux valeurs des réseaux sociaux.
+Ce projet a été réalisé en Symfony 3.4 et utilise différentes API ou hack pour accéder aux valeurs des réseaux sociaux.
 
 ## Clés et tokens
 
@@ -33,13 +36,13 @@ Toutes les clés et tokens pour accéder aux API sont stockés dans le fichier `
 
 ## Facebook
 
-Pour récupérer les informations Facebook, j'utilise le [SDK Facebook](https://developers.facebook.com/docs/php/Facebook/5.0.0) qui me retourne un json avec les valeurs de la page Facebook.
+Pour récupérer les informations Facebook, j'utilise le [SDK Facebook](https://developers.facebook.com/docs/reference/php) qui me retourne un json avec les valeurs de la page Facebook.
 
 Pour le bouton Like, j'utilise leur [générateur de bouton](https://developers.facebook.com/docs/plugins/like-button).
 
 ## Twitter
 
-Pour récupérer les informations Twitter, j'utilise la librairie twitteroauth](https://github.com/abraham/twitteroauth) qui me retourne un json avec les valeurs de la page Twitter.
+Pour récupérer les informations Twitter, j'utilise la librairie [twitteroauth](https://github.com/abraham/twitteroauth) qui me retourne un json avec les valeurs de la page Twitter.
 
 Pour le bouton Follow, j'utilise leur [générateur de bouton](https://dev.twitter.com/web/follow-button).
 
